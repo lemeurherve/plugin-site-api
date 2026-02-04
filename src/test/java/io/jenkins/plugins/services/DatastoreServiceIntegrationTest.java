@@ -32,7 +32,7 @@ public class DatastoreServiceIntegrationTest {
       new AbstractBinder() {
       @Override
       protected void configure() {
-        bind(mockScheduledExecutorService.getClass()).to(ScheduledExecutorService.class).in(Singleton.class);
+        bind(mockScheduledExecutorService).to(ScheduledExecutorService.class);
       }
     });
     datastoreService = locator.getService(DatastoreService.class);
