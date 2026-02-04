@@ -2,6 +2,7 @@ package io.jenkins.plugins;
 
 import io.jenkins.plugins.services.PrepareDatastoreService;
 import org.glassfish.hk2.api.ServiceLocator;
+import org.glassfish.jersey.internal.inject.InjectionManager;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.spi.Container;
 import org.glassfish.jersey.server.spi.ContainerLifecycleListener;
@@ -31,7 +32,8 @@ public class RestApp extends ResourceConfig {
     register(new ContainerLifecycleListener() {
       @Override
       public void onStartup(Container container) {
-        final ServiceLocator locator = container.getApplicationHandler().getServiceLocator();
+        final InjectionManager injectionManager = container.getApplicationHandler().getInjectionManager();
+        final ServiceLocator locator = injectionManager.getInstance(ServiceLocator.class);
         final PrepareDatastoreService service = locator.getService(PrepareDatastoreService.class);
         service.populateDataStore();
         service.schedulePopulateDataStore();
