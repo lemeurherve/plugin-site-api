@@ -1,4 +1,4 @@
-FROM jetty:9-alpine
+FROM jetty:11-jre17-alpine
 
 USER root
 
