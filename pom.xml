@@ -143,6 +143,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>5.12.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.glassfish.jersey.test-framework</groupId>
       <artifactId>jersey-test-framework-core</artifactId>
       <scope>test</scope>
