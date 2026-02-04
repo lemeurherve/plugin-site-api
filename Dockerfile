@@ -1,4 +1,4 @@
-FROM jetty:9-jdk8-eclipse-temurin
+FROM jetty:11-jdk17-eclipse-temurin
 COPY target/*.war $JETTY_BASE/webapps/ROOT.war
 RUN java -jar "${JETTY_HOME}/start.jar" \
   --create-startd \
